@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/myCss.css" />
+	</head>
+	<style>
+	.mui-table-view-cell.mui-active{
+		background-color: white;
+	}
+	#menu li{
+		border-bottom: 1px solid gainsboro;
+		position: relative;
+		border-radius: 2px;
+		padding: 5px 15px;
+		line-height: 40px;
+	}
+	#menu li:nth-child(even){
+		background: #D5E5F4;
+	}
+	#menu li:active{
+		background: gainsboro;
+	}
+	#menu li span{
+		padding-right: 5px;
+		color: gray;
+	}
+	</style>
+	<body>
+		<!--tab3-->
+		<div id="tabbar-with-map" class="mui-control-content mui-active">
+			<header class="i_header">
+				<div class="header-left">
+					<a  class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+				</div>
+				<center class="header-center">身份切换</center>
+			</header>
+			<div class="container">
+				<div id="menu">
+					<ul class="mui-table-view">
+
+					</ul>
+				</div>
+			</div>
+			<!--end tab3-->
+	</body>
+<script type="text/javascript" src="js/jquery.js" ></script>
+<script type="text/javascript" src="js/common.js" ></script>
+<script type="text/javascript" src="js/mui.min.js" ></script>
+<script>
+	function ShowMenu(obj, n) {
+		var Nav = obj.parentNode;
+		if(!Nav.id) {
+			var BName = Nav.getElementsByTagName("ul");
+			var HName = Nav.getElementsByTagName("h2");
+			var t = 2;
+		} else {
+			var BName = document.getElementById(Nav.id).getElementsByTagName("span");
+			var HName = document.getElementById(Nav.id).getElementsByTagName("h1");
+			var t = 1;
+		}
+		for(var i = 0; i < HName.length; i++) {
+			HName[i].innerHTML = HName[i].innerHTML.replace("-", "+");
+			HName[i].className = "";
+		}
+		obj.className = "h" + t;
+		/*for(var i = 0; i < BName.length; i++) {
+			if(i != n) {
+				BName[i].className = "no";
+			}
+		}*/
+		if(BName[n].className == "no") {
+			BName[n].className = "";
+			obj.innerHTML = obj.innerHTML.replace("+", "-");
+		} else {
+			BName[n].className = "no";
+			obj.className = "";
+			obj.innerHTML = obj.innerHTML.replace("-", "+");
+		}
+	}
+mui.plusReady(function(){
+	var param = JSON.parse(plus.storage.getItem('tempOrg'));
+	var tempOrgData = param.data.resultDatas[0].datas.values;
+	//console.log(JSON.stringify(tempOrgData))
+	for(var i=0;i<tempOrgData.length;i++){
+		var json={"data":{"selectDatas":[{"queryMode":"custom","dataSource":"Query_WF_GetTaskAgentByUserId","queryFrom":"NAME","selectExpression":"Query_WF_GetTaskAgentByUserId","conditionParams":{"loginUserId":{"paramName":"loginUserId","paramValue":"741476a7c5b178b2bedf1f062d17b26b"},"state":{"paramName":"state","paramValue":"Running"},"taskName":{"paramName":"taskName","paramValue":null},"processName":{"paramName":"processName","paramValue":null},"procInstState":{"paramName":"procInstState","paramValue":"Running"},"executionState":{"paramName":"executionState","paramValue":"Running"}},"extraCondition":"1 = 1","recordStart":-1,"pageSize":3}]}};
+		json.data.selectDatas[0].conditionParams.loginUserId.paramValue=tempOrgData[i].userId;
+		var jsonStr = encodeURI(JSON.stringify(json));
+		
+		(function(m){
+			$.ajax({
+			type: 'POST',
+			url: ip+"module-operation!executeOperation?moduleId=2689402522df4981a05c02a9b0559cbb",
+			data: {
+				'moduleId':'2689402522df4981a05c02a9b0559cbb',
+				'operation':'Find',
+				'ajaxRequest':'true',
+				'token':jsonStr
+			},
+			success: function(result){
+				var recordCount = result.data.resultDatas[0].datas.recordCount;
+				if(recordCount>0){
+					var timeArr = result.data.resultDatas[0].datas.values[0].startTime;
+					var time = timeArr.split(' ')[0];
+					console.log(JSON.stringify(result.data.resultDatas[0].datas))
+					//console.log(result.data.resultDatas[0].datas.recordCount);//待办个数
+					$('#menu ul').append('<li data-myID="'+tempOrgData[m].id+'" class="mui-table-view-cell">'+
+					'<span style="display:inline-block;min-width:80px">'+tempOrgData[m].orgNo+'</span>'+
+					'<span>' + tempOrgData[m].orgName +'</span>'+
+					'<span  class="mui-badge mui-badge-danger" style="position:absolute;color:white;top:20px;right: 20px;">'+recordCount+'</span>'+
+					'<span  class="mui-badge mui-badge-warning mui-badge-inverted" style="position: absolute;top:40px">'+time+'</span>'+
+					'</li>')
+				}else{
+					$('#menu ul').append('<li data-myID="'+tempOrgData[m].id+'" class="mui-table-view-cell">'+
+					'<span style="display:inline-block;min-width:80px">'+tempOrgData[m].orgNo+'</span>'+tempOrgData[m].orgName+
+					'</li>')
+				}
+			},
+		dataType: "json"
+	});
+	})(i);
+	}
+	mui('.mui-table-view').on('tap','li',function(){
+		var myID=$(this).attr('data-myID');
+		for(var i=0;i<tempOrgData.length;i++){
+			if(tempOrgData[i].id==myID){
+				plus.storage.setItem('usedAccountInfo',JSON.stringify(tempOrgData[i]));
+				mui.openWindow({
+					url:'User.html',
+					id:'User',
+					extras:{
+						accountInfo:tempOrgData[i]
+					}
+				});
+				break;
+			}
+		}
+	})
+	$('.mui-pull-left').on('tap',function(){
+		plus.webview.currentWebview().close();
+	})
+})
+</script>
+
+</html>

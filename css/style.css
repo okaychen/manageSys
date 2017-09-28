@@ -1,0 +1,353 @@
+/*
+public
+*/
+
+.btn {
+	padding: 0px 15px;
+	height: 30px;
+	line-height: 30px;
+	border: none;
+	border-radius: 10px;
+	outline: none;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.btn-primary {
+	background: #0697d6;
+}
+
+.btn-green {
+	background: #5abfa7;
+}
+
+a {
+	text-decoration: none;
+}
+
+.vertical-middle {
+	vertical-align: middle;
+}
+
+
+/*
+pageHeader
+*/
+
+html {
+	height: 100%;
+}
+
+body {
+	font-family: "微软雅黑";
+	height: 100%;
+	font-size: 14px;
+}
+
+.page-header {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #ffffff;
+	background: #336699;
+	box-shadow: 0px 0px 10px #999999;
+}
+
+.page-header aside {
+	width: 15%;
+	float: left;
+}
+
+.page-header aside a {
+	color: #FFFFFF;
+}
+
+.page-header main {
+	width: 70%;
+	float: left;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+
+/*
+pageMain
+*/
+.page-main{
+	width: 100%;
+	overflow-y: hidden;
+}
+.page-main-table {
+	width: 96%;
+	height: 80%;
+	margin-bottom: 60px;
+	margin-top: 10px;
+	margin: 0 auto;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 10px;
+	padding-bottom: 10px;
+	word-wrap:break-word;
+	word-break:break-all;
+	table-layout：fixed;
+}
+.page-main-table{
+	width: 100%;
+}
+.page-main-table td {
+	border: 1px solid #eee;
+	padding: 8px 0px;
+}
+.page-main-table tr {
+	width: 100%;
+	overflow: hidden;
+}
+.page-main-table tr td:first-child {
+	min-width: 100px;
+}
+.page-main-table tr td{
+	width: 100px;
+}
+.vertical-middle+td {
+	text-align: left;
+	padding: 8px 2px;
+	line-height: 18px;
+}
+
+.file-td {
+	position: relative;
+	text-align: left;
+}
+
+#file_download {
+	position: absolute;
+	right: 5px;
+	bottom: 8px;
+	height: 30px;
+	line-height: 20px;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	background: #0697d6;
+	color: #ffffff;
+}
+
+
+/*fileUpdate*/
+
+.input-file {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	width: auto;
+	background-color: #eee;
+	border-radius: 4px;
+	padding: 5px 10px;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 18px;
+	color: #999;
+	text-decoration: none;
+}
+
+.input-file input[type="file"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 14px;
+	background-color: #3366cc;
+	transform: translate(-300px, 0px) scale(4);
+	height: 40px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+#fileErrorTip,
+#showFileName {
+	color: #3366cc;
+	padding: 3px 0px 0px 0px;
+	text-align: center;
+}
+
+.last-td input[type="button"] {
+	text-align: center;
+	margin: 30px 30px 0px 30px;
+	display: inline;
+}
+
+.last-td a {
+	display: inline-block;
+}
+
+
+/*
+pageFooter
+*/
+
+.page-footer {
+	width: 100%;
+	margin-top: 50px;
+	position: fixed;
+	bottom: 0px;
+}
+
+.page-footer-list li {
+	padding: 10px 0px 5px 0px;
+	list-style: none;
+	float: left;
+	width: 25%;
+	text-align: center;
+	background: #336699;
+}
+
+.page-footer-list a {
+	color: #eeeeee;
+	font-size: 14px;
+}
+
+.page-footer-list a i {
+	font-size: 1.5em;
+	display: block;
+	padding-bottom: 2px;
+}
+
+.page-footer-list a:hover {
+	color: #999999;
+}
+
+
+/*
+pageListMain
+*/
+
+.pagList-main tr td:first-child {
+	width: 50px!important;
+}
+
+.pagList-main tr td:nth-child(2) {
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 60px;
+}
+
+.pagList-main tr:not(:first-child) td:nth-child(2) {
+	text-align: left;
+}
+
+.cut-page {
+	margin: 20px auto;
+	font-size: 14px;
+	text-align: center;
+}
+
+.cut-page span {
+	height: 30px;
+	min-width: 20px;
+	padding: 0px 5px;
+	display: inline-block;
+	border-radius: 3px;
+	line-height: 30px;
+	background: #eeeeee;
+	color: #333;
+}
+
+.cut-page span:hover {
+	background: #336699;
+	color: #FFFFFF;
+}
+
+
+/*
+pageManage
+*/
+
+.pageManage-main {
+	width: 94%;
+	margin-left: 3%;
+	padding-top: 10px;
+}
+
+.pageManage-main a[href="javascript:"] {
+	display: block;
+	width: 100%;
+	padding: 10px 0px;
+	color: #000;
+	border: 1px solid #999;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.pageManage-main input[type="button"] {
+	display: block;
+	width: 100%;
+	background: #009bf5;
+	border-radius: 5px;
+	padding: 12px 0px;
+	border: none;
+	color: #ffffff;
+}
+
+.pageManage-main input {
+	margin: 20px 0px;
+}
+
+.send-mess {
+	padding-left: 10px;
+	vertical-align: middle;
+}
+
+.choose-handle {
+	text-align: center;
+}
+
+.choose-handle i {
+	padding-right: 10px;
+	color: #999999;
+	margin-left: -10px;
+}
+
+.bg-blue {
+	background: #c5d9f1;
+}
+
+
+/*下拉选择*/
+
+.select-down {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	background: none;
+	border: 1px solid #999999;
+}
+.select-down-a {
+	border: none!important;
+}
+
+.select-pop {
+	width: 100%;
+	position: absolute;
+	z-index: 99;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	margin-top: 50px;
+	display: none;
+}
+
+.select-pop ul {
+	box-shadow: 0px 0px 1px #999;
+	border-radius: 3px;
+}
+
+.select-pop ul li {
+	list-style: none;
+	line-height: 30px;
+	border: 1px solid #EEEEEE;
+}

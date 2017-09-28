@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/myCss.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+
+	</head>
+
+	<body>
+		<header class="i_header">
+			<div class="header-left">
+				<a class="mui-icon mui-icon-left-nav mui-action-back mui-pull-left"></a>
+			</div>
+			<center class="header-center">关于我们</center>
+			<div class="header-right">
+				<span class="mui-icon-extra mui-icon-extra-share"></span>
+			</div>
+		</header>
+
+		<main>
+			<div class="imgWrapper"></div>
+			<!--logo-->
+			<div class="versionWrapper">Version 1.0.0</div>
+			<!--version-->
+			<div class="qrWrapper">
+				<table>
+					<thead><strong>江苏南通二建集团有限公司</strong></thead>
+					<tbody>
+						<tr>
+							<td>地　址：江苏省启东市人民中路683号 </td>
+							<td valign="bottom" rowspan="8" align="left"></td>
+						</tr>
+						<tr>
+							<td>电　话：0513-83316463 </td>
+						</tr>
+						<tr>
+							<td>传　真：0513-83357608 </td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<td>E-mail：nt2j@nt2j.cn </td>
+						</tr>
+						<tr>
+							<td>网　址：www.nt2j.cn </td>
+						</tr>
+						<tr>
+							<td>邮　编：226200 </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--二维码-->
+		</main>
+		<!--版本号-->
+		<footer class="footerWrapper">
+			<p>电子邮箱:nt2j@nt2j.cn</p>
+			<p>Copyright © 2017 nt2j.cn All rights reserved</p>
+		</footer>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/MyJs.js"></script>
+
+	</body>
+
+</html>

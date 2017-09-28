@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/myCss.css" />
+	</head>
+	<style>
+		a{
+			position:relative;
+		}
+		img{
+			height: 150px;
+		}
+		#taskNum{
+			position: absolute;
+			bottom: 25%;
+			left:95%;
+			border-radius: 100%;
+			height:20px;
+			width:20px;
+			font-size: smaller;
+		}
+		.menuBtnWrap{
+			height:130px;
+			margin-top:5px;
+			margin-left:5px;
+			border-bottom:1px solid #F2F2F2;
+		}
+		.affiche{
+			border-bottom:10px solid #F7F7F7;
+			height: 45px;
+		}
+		.affiche p{
+			padding: 0;
+			margin:0;
+			margin-top: -5px;
+			line-height:20px;
+			height: 40px;
+			font-size: 14px;
+			display:inline-block;
+		}
+		.affiche p:nth-child(1){
+			color: #46B3FF;
+			padding-left:4px;
+			padding-top: 2px;
+			line-height: 14px;
+			height: 20px;
+			width: 38px;
+			margin-top: 8px;
+			border-radius: 3px;
+			margin-left: 10px;
+			border: 1px solid #46B3FF;
+		}
+		.affiche p:nth-child(2){
+			margin-left: 5px;
+			overflow:hidden;
+			
+			padding-top: 10px;
+			text-overflow:ellipsis;
+			width: 70%;
+			white-space:nowrap; 
+		}
+		.affiche p:nth-child(3){
+			overflow:hidden; 
+			margin-right: 5px;
+			width: 8%;
+			margin-top: 6px;
+			color: gainsboro;
+		}
+		.mui-bar-tab{
+			position:fixed;
+			bottom: 0px;
+		}
+	</style>
+	<body>
+		<!--tab2-->
+		<div id="tabbar-with-contact" class="mui-control-content mui-active">
+			<header class="i_header">
+				<div class="header-left">
+					<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+				</div>
+				<center class="header-center">应用</center>
+			</header>
+			<!--slider-->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/shuijiao.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/muwu.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/yuantiao.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/cbd.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/shuijiao.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/shuijiao.jpg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div class="affiche">
+				<p class="mui-pull-left">公告</p>
+				<p>【示例】关于公司第一季度的销售情况的报告加长标题</p>
+				<p class="mui-pull-right">更多</p>
+			</div>
+			<!--end silder-->
+			<div  class="menuBtnWrap">
+				<div class="tabbar-contact-list  mt20">工作安排</div>
+				<div class="tabbar-contact-item" id='queryTodoTask'>
+					<a>
+						<span class="tabbar-contact-item-ico mui-icon mui-icon-compose bg44b774"></span>
+						<p>待办任务</p>
+						<span class=" mui-badge-danger" id="taskNum"></span>
+						
+					</a>
+				</div>
+				<div class="tabbar-contact-item" id='queryDoneTask'>
+					<a>
+						<span class="tabbar-contact-item-ico mui-icon mui-icon-map bgffc80c"></span>
+						<p>已办任务</p>
+					</a>
+				</div>
+			</div>
+			<div  class="menuBtnWrap" style="border:none;">
+				<div class="tabbar-contact-list  mt20 mui-pull-left">统计查询</div>
+				<div class="tabbar-contact-item">
+					<a>
+						<span class="tabbar-contact-item-ico mui-icon mui-icon-compose " style="background:#F2725E"></span>
+						<p>时效查询</p>						
+					</a>
+				</div>
+				<div class="tabbar-contact-item">
+					<a>
+						<span class="tabbar-contact-item-ico mui-icon mui-icon-map" style="background:#4DA9EB"></span>
+						<p>定向支付查询</p>
+					</a>
+				</div>
+				<div class="tabbar-contact-item">
+					<a>
+						<span class="tabbar-contact-item-ico mui-icon mui-icon-search " style="background:#16B78C"></span>
+						<p>资金使用查询</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--end tab2-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="index.html">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item  mui-active" href="apply.html">
+				<span class="mui-icon mui-icon-bars"></span>
+				<span class="mui-tab-label">应用</span>
+			</a>
+			<a class="mui-tab-item" href="User.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+	</body>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" src="js/common.js" ></script>
+<script type="text/javascript" src="js/jquery.js" ></script>  
+<script>
+mui.init({
+	swipeBack: true //启用右滑关闭功能
+});
+mui.plusReady(function(){
+	plus.webview.close('indexBody','none');
+	$('#queryTodoTask').on('tap',function(){
+		var usedAccountInfo = JSON.parse(plus.storage.getItem('usedAccountInfo'));
+		var json = {"data":{"selectDatas":[{"queryMode":"custom","dataSource":"Query_WF_GetTaskDbAndCy","queryFrom":"NAME","selectExpression":"Query_WF_GetTaskDbAndCy","conditionParams":{"processName":{"paramName":"processName","paramValue":null},"state":{"paramName":"state","paramValue":"Running"},"procInstState":{"paramName":"procInstState","paramValue":"Running"},"executionState":{"paramName":"executionState","paramValue":"Running"},"loginUserId":{"paramName":"loginUserId","paramValue":"741476a7c5b178b2bedf1f062d17b26b"},"taskName":{"paramName":"taskName","paramValue":null}},"extraCondition":"1 = 1","recordStart":-1,"pageSize":-1}]}};
+		json.data.selectDatas[0].conditionParams.loginUserId.paramValue=usedAccountInfo.userId;
+		json.data.selectDatas[0].pageSize=15;
+		json.data.selectDatas[0].recordStart=1;
+		var jsonStr = encodeURI(JSON.stringify(json));
+		$.ajax({
+			type: 'POST',
+			url: ip+"module-operation!executeOperation?moduleId=5de9264496ed421083f487f7dee1ac54",
+			data: {
+				  'moduleId':'5de9264496ed421083f487f7dee1ac54',
+				  'operation':'Find',
+				  'ajaxRequest':'true',
+				  'token':jsonStr
+			},
+			success: function(result){
+				 var param = result.data.resultDatas[0].datas
+				  //console.log(JSON.stringify(result))
+				  console.log(JSON.stringify(result.data.resultDatas[0].datas))
+				  var listPage = mui.openWindow({
+				  	url:'listParent.html',
+				  	id:'listParent',
+				  	extras:{
+				  		listInfo:param,
+				  		status:'daiban'
+				  	},
+				  	show: { //控制打开页面的类型
+						autoShow: true,
+						//页面loaded事件发生后自动显示，默认为true 
+						aniShow: 'slide-in-right', //页面显示动画，默认为”slide-in-right“；  页面出现的方式 左右上下
+						duration: '100' //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒； 
+					}
+				  });
+				  listPage.onclose=listPageClose;
+			},
+			error:function(ms){
+				mui.toast("网络出错");
+			},
+			dataType: "json"
+		});			
+	})
+	$("#queryDoneTask").on('tap',function(){
+		var usedAccountInfo = JSON.parse(plus.storage.getItem('usedAccountInfo'));
+		var json = {"data":{"selectDatas":[{"queryMode":"custom","dataSource":"Query_WF_GetTaskAgentByUserId","queryFrom":"NAME","selectExpression":"Query_WF_GetTaskAgentByUserId","conditionParams":{"taskName":{"paramName":"taskName","paramValue":null},"loginUserId":{"paramName":"loginUserId","paramValue":"000adminUserId"},"state":{"paramName":"state","paramValue":"Complete"},"processName":{"paramName":"processName","paramValue":null},"procInstState":{"paramName":"procInstState","paramValue":null},"executionState":{"paramName":"executionState","paramValue":null}},"extraCondition":"1 = 1","recordStart":-1,"pageSize":-1}]}};
+		json.data.selectDatas[0].conditionParams.loginUserId.paramValue=usedAccountInfo.userId;
+		json.data.selectDatas[0].pageSize=15;
+		json.data.selectDatas[0].recordStart=1;
+		var jsonStr = encodeURI(JSON.stringify(json));
+		$.ajax({
+			  type: 'POST',
+			  url: ip+"module-operation!executeOperation?moduleId=0f56b5142c5f4181820a5251be26b498",
+			  data: {
+				  'moduleId':'0f56b5142c5f4181820a5251be26b498',
+				  'operation':'Find',
+				  'ajaxRequest':'true',
+				  'token':jsonStr
+			  },
+			  success: function(result){
+				  var param = result.data.resultDatas[0].datas
+				  console.log(JSON.stringify(param))
+				  console.log(JSON.stringify(result.data.resultDatas[0].datas))
+				  var listPage = mui.openWindow({
+				  	url:'listParent.html',
+				  	id:'listParent',
+				  	extras:{
+				  		listInfo:param,
+				  		status:'yiban'
+				  	},
+				  	show: { //控制打开页面的类型
+						autoShow: true,
+						//页面loaded事件发生后自动显示，默认为true 
+						aniShow: 'slide-in-right', //页面显示动画，默认为”slide-in-right“；  页面出现的方式 左右上下
+						duration: '100' //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒； 
+					}
+				  });
+				  listPage.onclose=listPageClose;
+			  },
+			  dataType: "json"
+			});		
+	})
+	
+	// 页面关闭事件回调函数
+	function listPageClose(e){
+		setNum();
+	}
+	//setInterval(setNum,60000);
+	function setNum(){
+		var usedAccountInfo = JSON.parse(plus.storage.getItem('usedAccountInfo'));
+		var json = {"data":{"selectDatas":[{"queryMode":"custom","dataSource":"Query_WF_GetTaskDbAndCy","queryFrom":"NAME","selectExpression":"Query_WF_GetTaskDbAndCy","conditionParams":{"processName":{"paramName":"processName","paramValue":null},"state":{"paramName":"state","paramValue":"Running"},"procInstState":{"paramName":"procInstState","paramValue":"Running"},"executionState":{"paramName":"executionState","paramValue":"Running"},"loginUserId":{"paramName":"loginUserId","paramValue":"741476a7c5b178b2bedf1f062d17b26b"},"taskName":{"paramName":"taskName","paramValue":null}},"extraCondition":"1 = 1","recordStart":-1,"pageSize":-1}]}};
+		json.data.selectDatas[0].conditionParams.loginUserId.paramValue=usedAccountInfo.userId;
+		json.data.selectDatas[0].pageSize=15;
+		json.data.selectDatas[0].recordStart=1;
+		var jsonStr = encodeURI(JSON.stringify(json));
+		$.ajax({
+			type: 'POST',
+			url: ip+"module-operation!executeOperation?moduleId=5de9264496ed421083f487f7dee1ac54",
+			data: {
+				  'moduleId':'5de9264496ed421083f487f7dee1ac54',
+				  'operation':'Find',
+				  'ajaxRequest':'true',
+				  'token':jsonStr
+			},
+			success: function(result){
+				 var recordCount = result.data.resultDatas[0].datas.recordCount
+				 $("#taskNum").html(recordCount);
+			},
+			error:function(ms){
+				mui.toast("网络出错");
+			},
+			dataType: "json"
+		});			
+	}
+	
+	setNum();
+	
+		//首页返回键处理  
+	//处理逻辑：2秒内，连续两次按返回键，则退出应用  
+	var first = null;
+	var old_back = mui.back;
+	mui.back = function(){
+		//console.log('yes')
+	}
+	plus.key.addEventListener('backbutton', function() {		
+		//首次按键，提示‘再按一次退出应用’  
+		if(!first) {
+			first = new Date().getTime();
+			mui.toast('再按一次退出应用');
+			setTimeout(function() {
+				first = null;
+			}, 2000);
+		} else {
+			if(new Date().getTime() - first < 2000) {
+				plus.runtime.quit();
+			}
+		}
+	}, false);
+})
+</script>
+
+</html>

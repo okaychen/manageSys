@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>事业部资金支付申请</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<link href="css/reset.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/mui.min.css" rel='stylesheet'>
+		<link href="css/myCss.css" rel='stylesheet'>
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<style>
+	.mui-bar-nav{
+		background: #4177c7;
+	}
+	.mui-backdrop{
+		background-color: rgba(0,0,0,0.7);
+	    text-align: center;
+	}
+	img{
+		margin-top: 50%;
+		width: 100%;
+	}
+	.select-pop li{
+		background: white;
+	}
+	.tdtitle{
+		font-weight:bold;
+		background: rgba(217,244,254,0.7);
+	}
+	</style>
+	<body>
+		<!--header-->
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title header-center">事业部支付申请</h1>
+		   <button  type="button" id='activitiPicture' class="mui-btn  mui-pull-right mui-btn-outlined "><a class="fa fa-sitemap" aria-hidden="true"></a></button> 
+		</header>
+		</aside>
+		</header>
+		<!--main-->
+		<main class="page-main">
+			<table class="page-main-table">
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td class="tdtitle">支付编号</td>
+						<td colspan="3" id="payNo"></td>
+					</tr>
+					<tr>
+						<td class="tdtitle">所在区域公司</td>
+						<td colspan="3" id="belongOrgName"></td>
+					</tr>
+					<tr>
+						<td class="tdtitle">申请机构名称</td>
+						<td colspan="3" id="projectName"></td>
+					</tr>
+					<tr>
+						<td class="tdtitle">年月</td>
+						<td id="payDate"></td>
+						<td class="tdtitle">期次</td>
+						<td id="periodTimes"></td>
+					</tr>
+					<tr>
+						<td class="tdtitle">本次申请支付金额</td>
+						<td colspan="3" id="applyPayAmt"></td>
+					</tr>
+					<tr>
+						<td colspan="4" class="bg-blue">项目支付明细</td>
+					</tr>					
+					<!--项目1-->
+<!--					<tr>
+						<td>项目名称</td>
+						<td colspan="3">xxx项目</td>
+					</tr>
+					<tr>
+						<td>合同编号</td>
+						<td>2016WX112003</td>
+						<td>合同金额(万元)</td>
+						<td>169,83</td>
+					</tr>
+					<tr>
+						<td>累计已收款</td>
+						<td>18,000.00</td>
+						<td>累计已支付</td>
+						<td>36,000.00</td>
+					</tr>
+					<tr>
+						<td>累计已完成产值</td>
+						<td>43,000.00</td>
+						<td>本次申请金额</td>
+						<td>1,800.000</td>
+					</tr>
+					<tr>
+						<td class="vertical-middle">备注</td>
+						<td colspan="3">五金材料采购支付</td>
+					</tr>-->
+
+					<tr>
+						<td class="tdtitle">编制人</td>
+						<td id="preparer"></td>
+						<td class="tdtitle">编制日期</td>
+						<td id="prepareDate"></td>
+					</tr>
+					<tr>
+						<td colspan="4" class="file-td">
+							<a class="input-file input-fileup" href="javascript:">
+							</a>
+							<div id="fileErrorTip"></div>
+							<div id="showFileName"></div>
+							<button id="file_download">查看</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4" class="last-td">
+							<a id="Approval-record"><input class="btn btn-primary" value="办理情况" type="button"></a>
+							<a id="Management-link"><input class="btn btn-green" value="处理任务" type="button"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</main>
+
+		<!--pop-->
+		<div class="select-pop" id="select-pop">
+			<ul class="mui-table-view mui-table-view-radio">
+				<div class="pop-btn-wrapper">
+					<input class="mui-btn-primary" type="button" name="" id="colorPrimary" value="确定" />
+					<input class="mui-btn-primary" type="button" name="" id="popCansel" value="取消" />
+				</div>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script src="js/MyJs.js" type="text/javascript"></script>
+	</body>
+	<script>
+		var fileDownload = document.getElementById('file_download');
+		var Pop = document.getElementById('select-pop');
+		var radioItem = document.getElementsByClassName('radio-item');
+		var popCansel = document.getElementById('popCansel');
+		var oCover = document.createElement('div');
+
+		document.body.appendChild(oCover);
+		oCover.setAttribute('class', 'oCover');
+
+		fileDownload.addEventListener('click', function() {
+			Pop.style.display = 'block';
+			oCover.style.display = 'block';
+		}, false)
+
+		for(var i = 0; i < radioItem.length; i++) {
+			radioItem[i].index = i;
+			radioItem[i].onclick = function() {
+				for(var i = 0; i < radioItem.length; i++) {
+					radioItem[i].classList.remove('mui-selected');
+				}
+				radioItem[this.index].classList.add('mui-selected');
+			}
+		}
+
+		popCansel.onclick = function() {
+			Pop.style.display = 'none';
+			oCover.style.display = 'none';
+		}
+mui.plusReady(function(){
+	var page=plus.webview.getWebviewById("sybZF");
+	var processInstanceId = page.processInstanceId;
+	var processName = page.processName;
+	var processCode = page.processCode;
+	var fId = page.fId;
+	var processDefinitionId = page.processDefinitionId;
+	var firstWorkTask = page.firstWorkTask;
+	var actBusinData;
+	var list=plus.webview.getWebviewById("listParent");
+	if(list!=null){
+		if(list.status=='yiban'){
+			console.log('yes')
+			$("#Management-link input").addClass('mui-disabled')
+		}
+	}
+	
+	$('.header-center').html(processName);
+	var json={"data":{"selectDatas":[{"queryMode":"table","dataSource":"oa_form_inst","name":["oa_form_inst"],"field":["bizTableName","sendOrgName","formTitle","id","editFormWndId","docReviewMark","bussId","ProcessBizDataRelaId","formDefineId","docShowReviMark","senderId","formStatus","processInstanceId","bussComponentId","sendTime","processDefineId","senderName","docDefendMark","isHaveDoc","bussTableName","sendOrgId"],"condition":"(  processInstanceId  =  :oa_form_inst_processInstanceId_0_CONDITION_KEY_SUFFIX )","valueParamMap":{"oa_form_inst_processInstanceId_0_CONDITION_KEY_SUFFIX":"b3b0dcec9ac660b84d7e36eaf2f7f1c1"},"recordStart":-1,"pageSize":-1}]}};
+	json.data.selectDatas[0].valueParamMap.oa_form_inst_processInstanceId_0_CONDITION_KEY_SUFFIX=firstWorkTask.processInstanceId;
+	// 根据流程实例ID 获取业务ID
+	var jsonStr = encodeURI(JSON.stringify(json));
+	$.ajax({
+		type: 'POST',
+		url: ip+"module-operation!executeOperation?moduleId=f2a41afd81a44eac976c4ea45cb7e6b8",
+		data: {
+			'moduleId':'f2a41afd81a44eac976c4ea45cb7e6b8',
+			'operation':'Find',
+			'ajaxRequest':'true',
+			'token':jsonStr
+		},
+		success: function(result){
+			actBusinData=result.data.resultDatas[0].datas.values[0];
+			var json={"data":{"selectDatas":[{"queryMode":"table","dataSource":"iefc_BuFundPay","name":["iefc_BuFundPay"],"field":["belongOrgName","thisReceiveAmt","ystotalPayAmt","preparerId","id","remark","period","totalPayAmt","statusName","belongOrgId","payNo","totalReceiveAmt","periodTimes","projectName","buApprPayAmt","outPutAmt","applyPayAmt","preparer","orgName","prepareDate","statusFlag","projectId","orgId","thisPayAmt","payDate","projectNo"],"condition":"(  id  =  :iefc_BuFundPay_id_0_CONDITION_KEY_SUFFIX )","valueParamMap":{"iefc_BuFundPay_id_0_CONDITION_KEY_SUFFIX":"76542a65765df6552532c4fbf3496473"},"recordStart":-1,"pageSize":-1}]}};
+			json.data.selectDatas[0].valueParamMap.iefc_BuFundPay_id_0_CONDITION_KEY_SUFFIX=actBusinData.bussId;
+			var jsonStr = encodeURI(JSON.stringify(json));
+			$.ajax({
+				type: 'POST',
+				url: ip+"module-operation!executeOperation?moduleId="+actBusinData.bussComponentId,
+				data: {
+					'moduleId':actBusinData.bussComponentId,
+					'operation':'Find',
+					'ajaxRequest':'true',
+					'token':jsonStr
+				},
+				success: function(result){
+					//console.log(JSON.stringify(result.data.resultDatas[0].datas))
+					pageInfo1(result.data.resultDatas[0].datas.values)
+					var xmbDataDetailFull=result;
+					if(result.success==true){
+						var json={"data":{"selectDatas":[{"queryMode":"table","dataSource":"iefc_BuFundPayItem","name":["iefc_BuFundPayItem"],"field":["contractNo","projectId","contractName","totalReceiveAmt","ystotalPayAmt","projFundPayId","thisPayAmt","contractAmt","buFundPayId","projectNo","applyPayAmt","remark","outPutAmt","payDate","contractId","buApprPayAmt","id","totalPayAmt","projectName","thisReceiveAmt","FieldData1"],"condition":"(  buFundPayId  =  :iefc_BuFundPayItem_buFundPayId_0_CONDITION_KEY_SUFFIX )","orderBy":"iefc_BuFundPayItem.projectNo DESC","valueParamMap":{"iefc_BuFundPayItem_buFundPayId_0_CONDITION_KEY_SUFFIX":"76542a65765df6552532c4fbf3496473"},"recordStart":-1,"pageSize":-1}]}};
+						json.data.selectDatas[0].valueParamMap.iefc_BuFundPayItem_buFundPayId_0_CONDITION_KEY_SUFFIX=actBusinData.bussId;
+						var jsonStr = encodeURI(JSON.stringify(json));
+						$.ajax({
+							type: 'POST',
+							url: ip+"module-operation!executeOperation?moduleId="+actBusinData.bussComponentId,
+							data: {
+								'moduleId':actBusinData.bussComponentId,
+								'operation':'Find',
+								'ajaxRequest':'true',
+								'token':jsonStr
+							},
+							success: function(result){
+								//console.log(JSON.stringify(result.data))
+								pageInfo2(result.data.resultDatas[0].datas)
+							},
+							dataType: "json"
+						});
+					}
+				},
+				dataType: "json"
+			});
+		},
+		dataType: "json"
+	});		
+	function pageInfo1(data){
+		$('#payNo').html(data[0].payNo);
+		$('#projectName').html(data[0].projectName);
+		$('#payDate').html(data[0].payDate);
+		$('#applyPayAmt').html(formatMoney(data[0].applyPayAmt));
+		$('#prepareDate').html(data[0].prepareDate);
+		$('#periodTimes').html(data[0].periodTimes);
+		$('#belongOrgName').html(data[0].belongOrgName);
+		$('#remark').html(data[0].remark);
+		$('#preparer').html(data[0].preparer);
+		//查询附件列表
+		var json = {"data":{"selectDatas":[{"queryMode":"table","dataSource":"sys_Attachment","name":["sys_Attachment"],"field":["uploadTime","busiId","remark","fileName","fileId","fileSize","id","userName"],"condition":"(  busiId  =  :sys_Attachment_busiId_0_CONDITION_KEY_SUFFIX )","orderBy":"sys_Attachment.uploadTime DESC","valueParamMap":{"sys_Attachment_busiId_0_CONDITION_KEY_SUFFIX":"0c59e01ef8a93b5305941aaa26135903"},"recordStart":-1,"pageSize":-1}]}};
+		json.data.selectDatas[0].valueParamMap.sys_Attachment_busiId_0_CONDITION_KEY_SUFFIX = actBusinData.bussId;
+		var jsonStr = encodeURI(JSON.stringify(json));
+		var myUrl = null;
+		$.ajax({
+			  type: 'POST',
+			  url: ip+"module-operation!executeOperation?moduleId=066854a5125d464a9cbe5f37e698a7a9",
+			  data: {
+				  'moduleId':'066854a5125d464a9cbe5f37e698a7a9',
+				  'operation':'Find',
+				  'ajaxRequest':'true',
+				  'token':jsonStr
+			  },
+			  success: function(result){
+				var firstRecodeFile=result.data.resultDatas[0].datas.values; // 文件Json数据-- fileId 下载使用
+				  console.log(JSON.stringify(result));
+				  if(firstRecodeFile.length>0){
+				  	$(".input-fileup").html('<i class="fa fa-paperclip" aria-hidden="true"></i>有附件')
+				  	console.log($(".input-fileup").html())
+				  }else{
+				  	$(".input-fileup").html('<i class="fa fa-paperclip" aria-hidden="true"></i>无附件')				  	
+				  	$("#file_download").attr("disabled",true);
+				  	$("#file_download").css('background','grey')
+				  }
+				  for(var i=0;i<firstRecodeFile.length;i++){
+				  	$('#select-pop ul div').before('<li data-myUrl="'+firstRecodeFile[i].fileId+'" class="radio-item mui-table-view-cell"><a class="mui-navigate-right">'+firstRecodeFile[i].fileName+'</a></li>');
+				  }
+				
+				$('#select-pop ul').on('tap','li',function(event){
+					myUrl =$(this).attr('data-myUrl');
+				})
+				
+			    $("#colorPrimary").on('tap',function(){
+			    	    if(myUrl){
+			    	    		console.log(myUrl);
+				    	    	var url=ip+'module-operation!executeOperation?moduleId=066854a5125d464a9cbe5f37e698a7a9&operation=FileDown&token={"data":{"isMulti":false,"dataId":"'+myUrl+'"}}'; // 下载文件地址
+						var dtask = plus.downloader.createDownload( url, {method:"GET"});
+						dtask.start(); 
+					    dtask.addEventListener( "statechanged", function(task,status){
+					    	    if(!dtask){return;}
+					    	    switch(task.state) {
+					    		case 1: // 开始
+					    			console.log( "开始下载" );
+					    		    break;
+					    		case 2: // 已连接到服务器
+					    			console.log( "链接到服务器" );
+					    		    break;
+					    		case 3:	// 已接收到数据
+					    		    break;
+					    		case 4:	// 下载完成
+					    			console.log( "下载完成！" );
+					    			plus.runtime.openFile(task.filename)
+					    		    break;
+					       	}
+					    });
+			    	    }
+
+				})
+			  },
+			  dataType: "json"
+			});
+		$('#Management-link').on('tap',function(){
+			mui.openWindow({
+				url:'Management-link.html',
+				id:'managementLink',
+				extras:{
+			  		fId:fId,
+			  		processDefinitionId:processDefinitionId,
+			  		actBusinData:actBusinData,
+			  		firstWorkTask:firstWorkTask
+			  	}	
+			})
+		})
+		
+	}
+	function pageInfo2(datas){
+		if(datas.recordCount != 0){
+			var data = datas.values
+			for(var i=0;i<data.length;i++){formatMoney(data[0].firstMaterial)
+				var contractAmt=formatMoney(data[i].contractAmt);
+				var totalReceiveAmt=formatMoney(data[i].totalReceiveAmt);
+				var totalPayAmt=formatMoney(data[i].totalPayAmt);
+				var outPutAmt=formatMoney(data[i].outPutAmt);
+				var applyPayAmt=formatMoney(data[i].applyPayAmt);
+				var remark=data[i].remark==null?'':data[i].remark;
+				var detailTable=$('<tr><td>项目名称</td><td colspan="3">'+data[i].contractName+'</td></tr>'+
+				'<tr><td>合同编号</td><td>'+data[i].contractNo+'</td><td>合同金额(万元)</td><td>'+contractAmt+'</td></tr>'+
+				'<tr><td>累计已收款</td><td>'+totalReceiveAmt+'</td><td>累计已支付</td><td>'+totalPayAmt+'</td></tr>'+
+				'<tr><td>累计已完成产值</td><td>'+outPutAmt+'</td><td>本次申请金额</td><td>'+applyPayAmt+'</td></tr>'+
+				'<tr><td class="vertical-middle">备注</td><td colspan="3">'+remark+'</td></tr>');
+				$('.bg-blue').parent().after(detailTable)
+			}
+		}else{
+			$('.bg-blue').parent().after('<tr><td>无数据</td></tr>')
+		}
+	}
+	$('#Approval-record').on('tap',function(){
+		console.log(processInstanceId)
+		mui.openWindow({
+			url:'Approval-record.html',
+			id:'approvalRecord',
+			extras:{
+		  		processInstanceId:processInstanceId
+		  	}	
+			
+		})
+	})
+	$('#activitiPicture').on('tap',function(){
+		var mask = $('<div class="mui-backdrop"><img src="'+ip+'activitiPicture/'+processCode+'.png" /></div>')
+		$('body').append(mask);
+		$('.mui-backdrop').on('tap',function(){
+			$('.mui-backdrop').remove()
+		})
+		//监听返回键
+		var old_back = mui.back;
+		mui.back = function(){
+			if($('.mui-backdrop').is(":visible")){
+				$('.mui-backdrop').remove()
+			}else{
+				old_back()
+			}
+		}
+	})
+	mui.init({
+		keyEventBind: {
+			backbutton: true  //关闭back按键监听
+		}
+	});	
+})
+	</script>
+
+</html>

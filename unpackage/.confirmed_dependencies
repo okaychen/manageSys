@@ -1,0 +1,308 @@
+{
+  "apply.html": {
+    "resources": [
+      "js/common.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "css/myCss.css",
+      "js/jquery.js",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "images/shuijiao.jpg",
+      "index.html",
+      "User.html"
+    ],
+    "refer": [
+      "list.html",
+      "index.html",
+      "listParent.html",
+      "User.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "apply.html",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/shuijiao.jpg",
+      "images/photo1.png",
+      "css/myCss.css",
+      "images/photo2.jpg",
+      "images/cat.png",
+      "js/mui.min.js",
+      "User.html",
+      "js/MyJs.js",
+      "indexMain.html",
+      "indexBody.html",
+      "js/jquery.js"
+    ],
+    "refer": [
+      "apply.html",
+      "User.html",
+      "indexMain.html",
+      "indexBody.html"
+    ]
+  },
+  "login.html": {
+    "resources": [
+      "images/bg.png",
+      "js/mui.min.js",
+      "css/app.css",
+      "images/logo.jpg",
+      "css/mui.min.css",
+      "css/myCss.css",
+      "js/mui.enterfocus.js",
+      "js/jquery.js",
+      "css/reset.css",
+      "js/md5.js",
+      "fonts/mui.ttf",
+      "js/common.js",
+      "js/push.js"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "NTEJ-ZJGL-L002-T02.html": {
+    "refer": [
+      "Management-link.html",
+      "Approval-record.html"
+    ],
+    "resources": [
+      "js/MyJs.js",
+      "css/style.css",
+      "css/mui.min.css",
+      "css/reset.css"
+    ]
+  },
+  "list.html": {
+    "refer": [
+      "NTEJ-ZJGL-L002-T02.html",
+      "NTEJ-ZJGL-L008-T01.html",
+      "NTEJ-ZJGL-L002-T01.html",
+      "NTEJ-JSGL-L001-T01.html",
+      "NTEJ-CGGL-L001-T01.html",
+      "NTEJ-CGGL-L001-T02.html",
+      "NTEJ-ZJGL-L008-T02.html",
+      "NTEJ-JSGL-L001-T02.html"
+    ],
+    "resources": [
+      "js/jquery.js",
+      "css/mui.min.css",
+      "css/reset.css",
+      "css/app.css",
+      "css/myCss.css",
+      "js/common.js"
+    ]
+  },
+  "NTEJ-ZJGL-L008-T01.html": {
+    "resources": [
+      "js/MyJs.js",
+      "js/common.js",
+      "css/style.css",
+      "css/mui.min.css",
+      "css/myCss.css",
+      "css/reset.css",
+      "Approval-record.html",
+      "Management-link.html"
+    ],
+    "refer": [
+      "Approval-record.html",
+      "Management-link.html"
+    ]
+  },
+  "NTEJ-ZJGL-L002-T01.html": {
+    "refer": [
+      "Management-link.html",
+      "Approval-record.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "css/reset.css",
+      "js/MyJs.js"
+    ]
+  },
+  "NTEJ-JSGL-L001-T01.html": {
+    "resources": [
+      "js/MyJs.js",
+      "css/style.css",
+      "css/mui.min.css",
+      "css/reset.css",
+      "css/myCss.css"
+    ],
+    "refer": [
+      "Management-link.html",
+      "Approval-record.html"
+    ]
+  },
+  "Management-link.html": {
+    "refer": [
+      "index.html",
+      "NTEJ-ZJGL-L008-T01.html",
+      "NTEJ-ZJGL-L008-T02.html",
+      "listParent.html"
+    ],
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "index.html",
+      "css/reset.css",
+      "css/app.css",
+      "css/myCss.css",
+      "NTEJ-ZJGL-L008-T01.html",
+      "NTEJ-ZJGL-L008-T02.html",
+      "js/common.js",
+      "js/mui.picker.min.js",
+      "css/mui.picker.min.css",
+      "js/jquery.js"
+    ]
+  },
+  "NTEJ-CGGL-L001-T02.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/MyJs.js",
+      "css/reset.css"
+    ],
+    "refer": [
+      "Management-link.html"
+    ]
+  },
+  "NTEJ-CGGL-L001-T01.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/MyJs.js",
+      "css/style.css",
+      "css/reset.css"
+    ],
+    "refer": [
+      "Management-link.html"
+    ]
+  },
+  "User.html": {
+    "resources": [
+      "index.html",
+      "css/mui.min.css",
+      "apply.html",
+      "images/cat.png",
+      "css/app.css",
+      "css/myCss.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery.js"
+    ],
+    "refer": [
+      "index.html",
+      "login.html",
+      "UserChange.html",
+      "apply.html",
+      "about.html"
+    ]
+  },
+  "UserChange.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "User.html"
+    ]
+  },
+  "Approval-record.html": {
+    "resources": [
+      "NTEJ-ZJGL-L008-T01.html",
+      "css/mui.min.css",
+      "css/style.css",
+      "NTEJ-ZJGL-L008-T02.html"
+    ],
+    "refer": [
+      "NTEJ-ZJGL-L008-T01.html",
+      "NTEJ-ZJGL-L008-T02.html"
+    ]
+  },
+  "NTEJ-ZJGL-L008-T02.html": {
+    "resources": [
+      "js/MyJs.js",
+      "css/mui.min.css",
+      "css/myCss.css",
+      "css/style.css",
+      "css/reset.css",
+      "Approval-record.html",
+      "Management-link.html"
+    ],
+    "refer": [
+      "Approval-record.html",
+      "Management-link.html"
+    ]
+  },
+  "NTEJ-JSGL-L001-T02.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/MyJs.js"
+    ],
+    "refer": [
+      "Management-link.html"
+    ]
+  },
+  "listParent.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/reset.css",
+      "list.html",
+      "css/app.css",
+      "css/myCss.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery.js"
+    ],
+    "refer": [
+      "list.html"
+    ]
+  },
+  "indexMain.html": {
+    "resources": [
+      "images/photo1.png",
+      "images/photo2.jpg",
+      "css/mui.min.css",
+      "index.html",
+      "css/app.css",
+      "css/myCss.css"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "indexBody.html": {
+    "resources": [
+      "images/photo1.png",
+      "images/photo2.jpg",
+      "css/mui.min.css",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/shuijiao.jpg",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery.js"
+    ],
+    "refer": [
+      "listParent.html"
+    ]
+  },
+  "about.html": {
+    "resources": [
+      "fonts/mui-icons-extra.ttf",
+      "css/style.css",
+      "css/icons-extra.css"
+    ],
+    "refer": []
+  }
+}
