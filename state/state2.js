@@ -6,8 +6,6 @@ const Light = () => {
     this.button = null;
 }
 
-
-
 // toggle weakLightState
 const OffLightState = (light) => {
     this.light = light;
