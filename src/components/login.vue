@@ -11,7 +11,7 @@
 
             <div class="login_other">
                 <a href="javascript:;">找回密码</a>
-                <input type="checkbox" name="remenberme"><label for=""></label>
+                <input type="checkbox" name="remenberme"><label for="">记住我</label>
             </div>
 
             <div class="login_btn_box">
@@ -35,8 +35,21 @@
         methods: {
             login() {
                 var _this = this;
-                this.btn_disabled = true;
-                this.login_status = '登录中...';
+                // this.btn_disabled = true;
+                // this.login_status = '登录中...';
+                console.log(`${this.username},${this.password}`)
+                this.$reqs.post("/users/login",{
+                    username : this.username,
+                    password : this.password
+                }).then(function(reslut){
+                    console.log(reslut);
+                    _this.disablebtn = false;
+                    _this.loginText = "登录";
+                }).catch(function(error){
+                    console.log(error);
+                    _this.disablebtn = false;
+                    _this.loginText = "登录";
+                })
             }
         },
     }
@@ -63,6 +76,8 @@
         border-radius: 3px;
         padding: 0 10px;
         outline: none;
+        font-size: 16px;
+        color: #333;
         box-sizing: border-box;
         border: 1px solid #cad3de;
     }
