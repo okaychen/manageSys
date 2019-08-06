@@ -49,6 +49,7 @@
                             message: '登录成功',
                             type: 'success'
                         });
+                       
                     } else if (reslut.data.code == -2) {
                         _this.$message({
                             message: '密码输入错误,请重新输入',
@@ -81,7 +82,7 @@
 <style scoped>
     .login_container {
         width: 320px;
-        margin: 30px auto;
+        margin: 20px auto;
     }
 
     .title {
@@ -155,6 +156,7 @@
     .login_other label {
         float: left;
         color: #727f8f;
+        margin-top: -3px;
     }
 
     .login_other input {
