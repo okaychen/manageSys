@@ -1,7 +1,7 @@
 <template>
     <div class="backlogin">
         <div class="login_container">
-            <div class="title">后台登录</div>
+            <div class="title">用户登录</div>
             <div class="login_inp_box">
                 <input class="login_inp" type="text" placeholder="用户名" v-model="username" />
             </div>
@@ -35,20 +35,34 @@
         methods: {
             login() {
                 var _this = this;
-                // this.btn_disabled = true;
-                // this.login_status = '登录中...';
-                console.log(`${this.username},${this.password}`)
-                this.$reqs.post("/users/login",{
-                    username : this.username,
-                    password : this.password
-                }).then(function(reslut){
-                    console.log(reslut);
-                    _this.disablebtn = false;
-                    _this.loginText = "登录";
-                }).catch(function(error){
+                this.btn_disabled = true;
+                this.login_status = '登录中...';
+                // console.log(`${this.username},${this.password}`)
+                this.axios.post("/users/login", {
+                    username: this.username,
+                    password: this.password
+                }).then(function (reslut) {
+                    // console.log(reslut);
+                    // result.data.code 
+                    //  0 - 用户名或密码不能为空
+                    // -1 - 用户尚未注册
+                    // -2 - 密码输入错误
+                    //  1 - 登录成功
+                    if (reslut.data.code == 1) {
+                        console.log('登录成功');
+                    } else if (reslut.data.code == -2) {
+                        console.log('密码输入错误,请重新输入')
+                    } else if (reslut.data.code == 0) {
+                        console.log('用户名或密码不能为空')
+                    } else if (reslut.data.code = -1) {
+                        console.log('该用户尚未注册');
+                    }
+                    _this.btn_disabled = false;
+                    _this.login_status = "登录";
+                }).catch(function (error) {
                     console.log(error);
-                    _this.disablebtn = false;
-                    _this.loginText = "登录";
+                    _this.btn_disabled = false;
+                    _this.login_status = "登录";
                 })
             }
         },
