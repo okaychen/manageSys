@@ -10,7 +10,7 @@
             </div>
 
             <div class="login_other">
-                <a href="javascript:;">找回密码</a>
+                <a href="javascript:;">注册用户</a>
                 <input type="checkbox" name="remenberme"><label for="">记住我</label>
             </div>
 
@@ -43,19 +43,27 @@
                     password: this.password
                 }).then(function (reslut) {
                     // console.log(reslut);
-                    // result.data.code 
-                    //  0 - 用户名或密码不能为空
-                    // -1 - 用户尚未注册
-                    // -2 - 密码输入错误
-                    //  1 - 登录成功
+                    // result.data.code >>> 0 用户名或密码不能为空 >>> -1 用户尚未注册 >>> -2 密码输入错误 >>> 1 登录成功
                     if (reslut.data.code == 1) {
-                        console.log('登录成功');
+                        _this.$message({
+                            message: '登录成功',
+                            type: 'success'
+                        });
                     } else if (reslut.data.code == -2) {
-                        console.log('密码输入错误,请重新输入')
+                        _this.$message({
+                            message: '密码输入错误,请重新输入',
+                            type: 'error'
+                        });
                     } else if (reslut.data.code == 0) {
-                        console.log('用户名或密码不能为空')
+                        _this.$message({
+                            message: '用户名或者密码不能为空',
+                            type: 'warning'
+                        });
                     } else if (reslut.data.code = -1) {
-                        console.log('该用户尚未注册');
+                        _this.$message({
+                            message: '用户尚未注册',
+                            type: 'warning'
+                        })
                     }
                     _this.btn_disabled = false;
                     _this.login_status = "登录";
