@@ -49,7 +49,9 @@
                             message: '登录成功',
                             type: 'success'
                         });
-                       
+                        _this.$router.push({
+                            path: '/index'
+                        })
                     } else if (reslut.data.code == -2) {
                         _this.$message({
                             message: '密码输入错误,请重新输入',
