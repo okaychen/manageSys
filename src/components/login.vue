@@ -41,28 +41,29 @@
                 this.axios.post("/users/login", {
                     username: this.username,
                     password: this.password
-                }).then(function (reslut) {
-                    // console.log(reslut);
-                    // result.data.code >>> 0 用户名或密码不能为空 >>> -1 用户尚未注册 >>> -2 密码输入错误 >>> 1 登录成功
-                    if (reslut.data.code == 1) {
+                }).then(function (res) {
+                    // console.log(res);
+                    // res.data.code >>> 0 用户名或密码不能为空 >>> -1 用户尚未注册 >>> -2 密码输入错误 >>> 1 登录成功
+                    if (res.data.code == 1) {
                         _this.$message({
                             message: '登录成功',
                             type: 'success'
                         });
+                        localStorage.setItem('ms_username', res.data.userInfo.username);
                         _this.$router.push({
-                            path: '/index'
+                            path: '/index',
                         })
-                    } else if (reslut.data.code == -2) {
+                    } else if (res.data.code == -2) {
                         _this.$message({
                             message: '密码输入错误,请重新输入',
                             type: 'error'
                         });
-                    } else if (reslut.data.code == 0) {
+                    } else if (res.data.code == 0) {
                         _this.$message({
                             message: '用户名或者密码不能为空',
                             type: 'warning'
                         });
-                    } else if (reslut.data.code = -1) {
+                    } else if (res.data.code = -1) {
                         _this.$message({
                             message: '用户尚未注册',
                             type: 'warning'
