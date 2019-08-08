@@ -1,0 +1,95 @@
+<template>
+    <div class="register">
+        <div class="login_container">
+            <div class="title">用户注册</div>
+            <div class="login_inp_box">
+                <input class="login_inp" type="text" placeholder="用户名" v-model="username" />
+            </div>
+            <div class="login_inp_box">
+                <input @keyup.13="register" class="login_inp" type="password" placeholder="密码" v-model="password" />
+            </div>
+            <div class="login_btn_box">
+                <button :disabled="btn_disabled" class="login_btn" @click="register">{{register_status}}</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                username: "",
+                password: "",
+                register_status: "注册",
+                btn_disabled: false
+            }
+        },
+        methods: {
+            register() {
+                var _this = this;
+                console.log(1);
+            }
+        },
+    }
+</script>
+
+<style>
+    .login_container {
+        width: 320px;
+        margin: 20px auto;
+    }
+
+    .title {
+        color: #273444;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .login_inp {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        margin: 4px 0 10px;
+        border-radius: 3px;
+        padding: 0 10px;
+        outline: none;
+        font-size: 16px;
+        color: #333;
+        box-sizing: border-box;
+        border: 1px solid #cad3de;
+    }
+
+    .login_inp:focus {
+        border: 1px solid #4289dc;
+    }
+
+    .login_btn {
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        margin-top: 15px;
+        line-height: 40px;
+        text-align: center;
+        background: #4187db;
+        border: none 0;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.5 ease;
+    }
+
+    .login_btn:hover {
+        background: #2668b5;
+    }
+
+    .login_btn[disabled] {
+        opacity: 0.7;
+    }
+
+    .login_btn[disabled]:hover {
+        background: #4187db;
+    }
+</style>

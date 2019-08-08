@@ -1,5 +1,5 @@
 <template>
-    <div class="backlogin">
+    <div class="login">
         <div class="login_container">
             <div class="title">用户登录</div>
             <div class="login_inp_box">
@@ -8,12 +8,10 @@
             <div class="login_inp_box">
                 <input @keyup.13="login" class="login_inp" type="password" placeholder="密码" v-model="password" />
             </div>
-
             <div class="login_other">
-                <a href="javascript:;">注册用户</a>
+                <router-link to="/register"><a href="javascript:;">注册用户</a></router-link>
                 <input type="checkbox" name="remenberme"><label for="">记住我</label>
             </div>
-
             <div class="login_btn_box">
                 <button :disabled="btn_disabled" class="login_btn" @click="login">{{login_status}}</button>
             </div>
@@ -23,7 +21,6 @@
 
 <script>
     export default {
-        name: "",
         data() {
             return {
                 username: "admin",
@@ -49,7 +46,7 @@
                             message: '登录成功',
                             type: 'success'
                         });
-                        localStorage.setItem('ms_username', res.data.userInfo.username);
+                        localStorage.setItem('currentUser_name', res.data.userInfo.username);
                         _this.$router.push({
                             path: '/index',
                         })
