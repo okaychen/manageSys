@@ -38,6 +38,7 @@
                     password: this.password,
                     re_password: this.re_password
                 }).then(function (res) {
+                    // // res.data.code >>> 0 用户名或密码不能为空 >>> -3 该用户已被注册 >>> -4 两次密码输入不一致 >>> 2 注册成功
                     if (res.data.code === 2) {
                         _this.$message({
                             message: res.data.message,
