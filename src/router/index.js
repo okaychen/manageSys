@@ -7,25 +7,22 @@ import index from '@/views/index'
 Vue.use(Router)
 
 var router = new Router({
-  routes: [{
-    path: '/',
-    redirect: '/login'
-  }, {
-    path: '/login',
-    name: 'login',
-    component: login
-  }, {
-    path: '/register',
-    name: 'register',
-    component: register
-  }, {
-    path: '/index',
-    name: 'index',
-    meta: {
-      requireAuth: true //判断是否需要登录
-    },
-    component: index
-  }]
+	routes: [{
+		path: '/',
+		redirect: '/login'
+	}, {
+		path: '/login',
+		name: 'login',
+		component: login
+	}, {
+		path: '/register',
+		name: 'register',
+		component: register
+	}, {
+		path: '/index',
+		name: 'index',
+		component: index
+	}]
 })
 
 export default router;

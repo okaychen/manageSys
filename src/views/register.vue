@@ -6,7 +6,11 @@
                 <input class="login_inp" type="text" placeholder="用户名" v-model="username" />
             </div>
             <div class="login_inp_box">
-                <input @keyup.13="register" class="login_inp" type="password" placeholder="密码" v-model="password" />
+                <input class="login_inp" type="password" placeholder="密码" v-model="password" />
+            </div>
+            <div class="login_inp_box">
+                <input @keyup.13="register" class="login_inp" type="password" placeholder="确认密码"
+                    v-model="re_password" />
             </div>
             <div class="login_btn_box">
                 <button :disabled="btn_disabled" class="login_btn" @click="register">{{register_status}}</button>
@@ -21,6 +25,7 @@
             return {
                 username: "",
                 password: "",
+                re_password: "",
                 register_status: "注册",
                 btn_disabled: false
             }
@@ -28,7 +33,28 @@
         methods: {
             register() {
                 var _this = this;
-                console.log(1);
+                this.axios.post('/users/register', {
+                    username: this.username,
+                    password: this.password,
+                    re_password: this.re_password
+                }).then(function (res) {
+                    if (res.data.code === 2) {
+                        _this.$message({
+                            message: res.data.message,
+                            type: 'success'
+                        })
+                        _this.$router.push({
+                            path: '/login'
+                        })
+                    } else {
+                        _this.$message({
+                            message: res.data.message,
+                            type: 'error'
+                        })
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                })
             }
         },
     }

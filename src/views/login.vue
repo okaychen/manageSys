@@ -41,29 +41,19 @@
                 }).then(function (res) {
                     // console.log(res);
                     // res.data.code >>> 0 用户名或密码不能为空 >>> -1 用户尚未注册 >>> -2 密码输入错误 >>> 1 登录成功
-                    if (res.data.code == 1) {
+                    if (res.data.code === 1) {
                         _this.$message({
-                            message: '登录成功',
+                            message: res.data.message,
                             type: 'success'
                         });
                         localStorage.setItem('currentUser_name', res.data.userInfo.username);
                         _this.$router.push({
                             path: '/index',
                         })
-                    } else if (res.data.code == -2) {
+                    } else {
                         _this.$message({
-                            message: '密码输入错误,请重新输入',
+                            message: res.data.message,
                             type: 'error'
-                        });
-                    } else if (res.data.code == 0) {
-                        _this.$message({
-                            message: '用户名或者密码不能为空',
-                            type: 'warning'
-                        });
-                    } else if (res.data.code = -1) {
-                        _this.$message({
-                            message: '用户尚未注册',
-                            type: 'warning'
                         })
                     }
                     _this.btn_disabled = false;
@@ -136,6 +126,10 @@
 
     .login_btn[disabled]:hover {
         background: #4187db;
+    }
+
+    .login_other {
+        margin-top: 10px;
     }
 
     .login_other input[type="checkbox"] {
