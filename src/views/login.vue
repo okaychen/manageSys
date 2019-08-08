@@ -1,5 +1,6 @@
 <template>
     <div class="login">
+        <img src="../assets/logo.png">
         <div class="login_container">
             <div class="title">用户登录</div>
             <div class="login_inp_box">
@@ -70,6 +71,10 @@
 
 
 <style scoped>
+    .login {
+        margin-top: 60px;
+    }
+
     .login_container {
         width: 320px;
         margin: 20px auto;
