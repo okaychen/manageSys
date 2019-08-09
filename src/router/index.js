@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueResource from 'vue-resource'
 import login from '@/views/login'
 import register from '@/views/register'
 import index from '@/views/index'
 
 Vue.use(Router)
+Vue.use(VueResource)
 
 var router = new Router({
 	routes: [{
