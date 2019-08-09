@@ -2,31 +2,20 @@
     <div class="index">
         <el-container>
             <scrollbar></scrollbar>
-            <router-view></router-view>
-            <el-container>
-                <el-header style="background:#fff;text-align: right; font-size: 12px;">
-                    <el-dropdown>
-                        <i class="el-icon-setting" style="margin-right: 15px"></i>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>查看</el-dropdown-item>
-                            <el-dropdown-item>新增</el-dropdown-item>
-                            <el-dropdown-item>删除</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                    <span>王小虎</span>
-                </el-header>
-
-                <el-main style="background:#f3f3f4">
+            <el-container style="position:relative">
+                <vheader></vheader>
+                <el-main class="main_container">
 
                 </el-main>
             </el-container>
-
         </el-container>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
     var scrollbar = require('../components/scrollbar.vue').default;
+    var vheader = require('../components/header.vue').default;
     export default {
         data() {
             return {
@@ -37,14 +26,24 @@
 
         },
         components: {
-            scrollbar
+            scrollbar,
+            vheader
         },
     };
 </script>
 
-<style scoped>
+<style>
     .index,
     .el-container {
         height: 100%;
+    }
+
+    .main_container {
+        width: 100%;
+        min-height: calc(100% - 60px);
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        background: #f3f3f4;
     }
 </style>

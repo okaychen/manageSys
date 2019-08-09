@@ -14,18 +14,20 @@
                     <i class="el-icon-location"></i>
                     <span>用户管理</span>
                 </template>
-                <el-menu-item index="2-1">选项1</el-menu-item>
-                <el-menu-item index="2-2">选项2</el-menu-item>
+                <el-menu-item class="ml85" index="2-1">选项1</el-menu-item>
+                <el-menu-item class="ml85" index="2-2">选项2</el-menu-item>
             </el-submenu>
-            <el-submenu index="3">
+            <el-submenu index="3" class="routerLink">
                 <template slot="title">
                     <i class="el-icon-document"></i>
                     <span>文章管理</span>
                 </template>
-                <el-menu-item index="3-1" class="routerLink">
-                    <router-link to="/login">文章列表</router-link>
-                </el-menu-item>
-                <el-menu-item index="3-2">选项2</el-menu-item>
+                <router-link to="/articleList">
+                    <el-menu-item index="3-1" class="ml85">
+                        文章列表
+                    </el-menu-item>
+                </router-link>
+                <el-menu-item index="3-2" class="ml85">选项2</el-menu-item>
             </el-submenu>
             <el-menu-item index="4">
                 <i class="el-icon-setting"></i>
@@ -69,12 +71,20 @@
     }
 
     .el-menu {
-        margin-left: -20px;
+        margin-left: -50px;
         border: none;
     }
 
     .routerLink a {
         color: #ffffff;
         text-decoration: none;
+    }
+
+    .routerLink a:focus {
+        color: rgb(255, 208, 75);
+    }
+
+    .ml85 {
+        margin-left: 85px;
     }
 </style>

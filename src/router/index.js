@@ -4,6 +4,7 @@ import VueResource from 'vue-resource'
 import login from '@/views/login'
 import register from '@/views/register'
 import index from '@/views/index'
+import articleList from '@/views/articleList'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -24,6 +25,10 @@ var router = new Router({
 		path: '/index',
 		name: 'index',
 		component: index
+	}, {
+		path: '/articleList',
+		name: 'articleList',
+		component: articleList
 	}]
 })
 
