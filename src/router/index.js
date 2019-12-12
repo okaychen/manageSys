@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import VueResource from 'vue-resource'
-import login from '@/views/login'
-import register from '@/views/register'
-import index from '@/views/index'
-import articleList from '@/views/articleList'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -16,19 +12,19 @@ var router = new Router({
 	}, {
 		path: '/login',
 		name: 'login',
-		component: login
+		component: resolve => require(['@/views/login'], resolve),
 	}, {
 		path: '/register',
 		name: 'register',
-		component: register
+		component: resolve => require(['@/views/register'], resolve)
 	}, {
 		path: '/index',
 		name: 'index',
-		component: index
+		component: resolve => require(['@/views/index'], resolve)
 	}, {
 		path: '/articleList',
 		name: 'articleList',
-		component: articleList
+		component: resolve => require(['@/views/articleList'], resolve)
 	}]
 })
 
