@@ -1,30 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import VueResource from 'vue-resource'
 
-Vue.use(Router)
-Vue.use(VueResource)
+Vue.use(Router);
 
-var router = new Router({
+const login = r => require.ensure([], () => r(require('@/views/login')), 'login');
+const register = r => require.ensure([], () => r(require('@/views/register')), 'register');
+const index = r => require.ensure([], () => r(require('@/views/index')), 'index');
+const articleList = r => require.ensure([], () => r(require('@/views/articleList')), 'articleList');
+
+const router = new Router({
 	routes: [{
 		path: '/',
 		redirect: '/login'
 	}, {
 		path: '/login',
 		name: 'login',
-		component: resolve => require(['@/views/login'], resolve),
+		component: login
 	}, {
 		path: '/register',
 		name: 'register',
-		component: resolve => require(['@/views/register'], resolve)
+		component: register
 	}, {
 		path: '/index',
 		name: 'index',
-		component: resolve => require(['@/views/index'], resolve)
+		component: index
 	}, {
 		path: '/articleList',
 		name: 'articleList',
-		component: resolve => require(['@/views/articleList'], resolve)
+		component: articleList
 	}]
 })
 
