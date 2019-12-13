@@ -4,35 +4,45 @@
             <el-image :src="src"></el-image>
         </div>
         <el-menu :default-openeds="['2', '3']" default-active="1" class="el-menu-vertical-demo" @open="handleOpen"
-            @close="handleClose" background-color="#336699" text-color="#fff" active-text-color="#ffd04b">
+            @close="handleClose" background-color="#336699" text-color="#eee" active-text-color="#ffd04b">
+            
             <el-menu-item index="1">
                 <i class="el-icon-menu"></i>
                 <span slot="title">首页</span>
             </el-menu-item>
+            
             <el-submenu index="2">
                 <template slot="title">
                     <i class="el-icon-location"></i>
-                    <span>用户管理</span>
+                    <span>数据列表</span>
                 </template>
-                <el-menu-item class="ml85" index="2-1">选项1</el-menu-item>
-                <el-menu-item class="ml85" index="2-2">选项2</el-menu-item>
+                <el-menu-item class="ml85" index="2-1">文章列表</el-menu-item>
+                <el-menu-item class="ml85" index="2-2">模板列表</el-menu-item>
+                <el-menu-item class="ml85" index="2-3">用户列表</el-menu-item>
+                <el-menu-item class="ml85" index="2-4">管理员列表</el-menu-item>
             </el-submenu>
+            
             <el-submenu index="3" class="routerLink">
                 <template slot="title">
                     <i class="el-icon-document"></i>
-                    <span>文章管理</span>
+                    <span>添加数据</span>
                 </template>
                 <router-link to="/articleList">
                     <el-menu-item index="3-1" class="ml85">
-                        文章列表
+                        创建模板
                     </el-menu-item>
                 </router-link>
-                <el-menu-item index="3-2" class="ml85">选项2</el-menu-item>
+                <el-menu-item index="3-2" class="ml85">新增文章</el-menu-item>
             </el-submenu>
-            <el-menu-item index="4">
-                <i class="el-icon-setting"></i>
-                <span slot="title">系统管理</span>
-            </el-menu-item>
+
+            <el-submenu index="4">
+                <template slot="title">
+                    <i class="el-icon-warning"></i>
+                    <span>系统设置</span>
+                </template>
+                <el-menu-item class="ml85" index="4-1">用户信息</el-menu-item>
+                <el-menu-item class="ml85" index="4-2">系统帮助</el-menu-item>
+            </el-submenu>
         </el-menu>
     </el-aside>
 </template>
