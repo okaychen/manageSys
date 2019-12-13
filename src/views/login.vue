@@ -49,7 +49,7 @@
                         });
                         localStorage.setItem('currentUser_name', res.data.userInfo.username);
                         _this.$router.push({
-                            path: '/index',
+                            path: '/manage',
                         })
                     } else {
                         _this.$message({
